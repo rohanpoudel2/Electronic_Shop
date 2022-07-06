@@ -1,0 +1,50 @@
+@import '../../styles/colors.scss';
+
+.product-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 170px);
+
+  .left {
+    flex: 1;
+
+    .filter-title,
+    .filters {
+      margin-right: 20px;
+
+      button {
+        padding: 5px 10px;
+        border: 1px solid $secondary-color;
+        border-radius: 5px;
+        background: transparent;
+        color: $secondary-color;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          background-color: rgba($secondary-color, 0.8);
+          color: white;
+        }
+      }
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .inputdiv {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .right {
+    flex: 6;
+
+    .products {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}

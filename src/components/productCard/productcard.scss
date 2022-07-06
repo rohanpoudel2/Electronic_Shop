@@ -1,0 +1,114 @@
+@import '../../styles/colors.scss';
+
+.productcard {
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 20px;
+  border-radius: 5px;
+
+  .productImage {
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: scale-down;
+    }
+  }
+
+  .productDetails {
+    display: flex;
+
+    .left {
+      flex: 1;
+
+      .productTitle {
+        color: gray;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .productPrice {
+        color: #333;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      justify-content: center;
+
+      .productQuantity,
+      .productCategory {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .productCategory {
+        border: 1px solid #333;
+        margin-bottom: 5px;
+      }
+
+      .productCategory:last-child {
+        margin-bottom: 0px;
+      }
+
+      .productQuantity {
+        padding: 5px;
+        margin-bottom: 5px;
+
+        &.instock {
+          color: green;
+          background-color: rgba(135, 255, 135, 0.217);
+        }
+
+        &.outofstock {
+          color: crimson;
+          background-color: rgba(255, 86, 120, 0.217);
+        }
+      }
+
+
+    }
+
+  }
+
+  .productEnd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    .productListDate {
+      color: #333;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: $base-color;
+      background-color: transparent;
+      border: 1px solid $base-color ;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $base-color;
+        color: white;
+      }
+
+      &.gray {
+        border: 1px solid #222;
+        color: #333;
+
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.537);
+          color: white;
+        }
+      }
+    }
+  }
+}

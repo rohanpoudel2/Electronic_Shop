@@ -1,0 +1,94 @@
+@import '../../styles/colors.scss';
+
+.footer {
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 20px;
+  min-height: 120px;
+
+  .icon {
+    color: rgba(51, 51, 51, 0.58);
+    cursor: pointer;
+  }
+
+  .wrapper {
+    display: flex;
+  }
+
+  .left {
+    flex: 2;
+
+    .logo {
+      color: $base-color;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .shop_des {
+      margin: 5px;
+      text-align: justify;
+    }
+
+    .newsletter {
+      display: flex;
+      align-items: center;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin: 10px 0px;
+
+      input {
+        width: 100%;
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+      }
+
+
+    }
+  }
+
+  .middle {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 20px;
+
+    .middle-title {
+      font-size: 20px;
+      color: gray;
+      font-weight: bold;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+
+      .footer-link {
+        display: flex;
+        justify-content: flex-start;
+        margin: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    text-align: left;
+
+    .footer-title {
+      font-size: 20px;
+      color: gray;
+      font-weight: bold;
+    }
+
+    .footer_contact_items {
+      .footer_contact_item {
+        display: flex;
+        justify-content: flex-start;
+        margin: 5px;
+      }
+    }
+  }
+}
