@@ -1,7 +1,12 @@
 import './cartitem.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useDispatch } from 'react-redux';
+import { DeleteItem } from '../../redux/CartSlice';
 
-const CartItem = () => {
+const CartItem = ({ d, qty }) => {
+
+  const dispatch = useDispatch();
+
   return (
     <div className='cartitem'>
       <div className="cart-wrapper">
@@ -10,20 +15,19 @@ const CartItem = () => {
             <div className="cart-item">
               <div className="cart-item-content-left">
                 <div className="cart-item-img">
-                  <img src='https://www.btplanet.com.np/storage/backend/assets/images/product/1615356731D8aE-Slim-3i.jpg' alt="" />
-                  <h4>Product Title</h4>
+                  <img src={`https://electronic-ecommerce.herokuapp.com/${d.image}`} alt="imgcart" />
+                  <h4>{d.name}</h4>
                 </div>
 
               </div>
               <div className="cart-item-content-right">
                 <div className="cart-item-stock">
-                  <span>1</span>
+                  <span>{d.stock}</span>
                 </div>
                 <div className="cart-item-qty">
-                  <label htmlFor="qty">Product Quantity:</label>
-                  <input id='inputqty' name='qty' type='number' step='1' min='1' max='10' />
+                  <label htmlFor="qty">Product Quantity: {qty}</label>
                 </div>
-                <div className="cart-item-delete-button">
+                <div className="cart-item-delete-button" onClick={() => { dispatch(DeleteItem(d)) }}>
                   <DeleteIcon fontSize='md' />
                   Delete
                 </div>

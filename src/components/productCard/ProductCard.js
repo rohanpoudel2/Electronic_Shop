@@ -7,10 +7,10 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 
 
-const ProductCard = ({ id, image, name, price, stock, date, category, }) => {
+const ProductCard = ({ d }) => {
 
   if (!localStorage.getItem('electronic-shop-rohan')) {
-    localStorage.setItem('electronic-shop-rohan', null);
+    localStorage.setItem('electronic-shop-rohan', []);
   }
 
   const [state, setState] = React.useState({
@@ -38,7 +38,7 @@ const ProductCard = ({ id, image, name, price, stock, date, category, }) => {
         <h2>Set the Quantity</h2>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
         <button onClick={() => dispatch(AddItem({
-          id: id,
+          product: d,
           quantity: quantity
         }))}>
           Continue
@@ -47,25 +47,25 @@ const ProductCard = ({ id, image, name, price, stock, date, category, }) => {
     </Box>
   );
 
-  var productDate = new Date(date);
+  var productDate = new Date(d.createDate);
 
   return (
     <div className="productcard">
       <div className="productImage">
-        <img src={`https://electronic-ecommerce.herokuapp.com/${image}`} alt="productimg" />
+        <img src={`https://electronic-ecommerce.herokuapp.com/${d.image}`} alt="productimg" />
       </div>
       <div className="productDetails">
         <div className="left">
-          <div className="productTitle">{name}</div>
-          <div className="productPrice">Price: Rs.{price}</div>
+          <div className="productTitle">{d.name}</div>
+          <div className="productPrice">Price: Rs.{d.price}</div>
         </div>
         <div className="right">
-          <div className={`productQuantity ${stock <= 0 ? 'outofstock' : 'instock'}`}>Stock:{stock}</div>
-          {category.map((d) => <div key={nanoid()} className="productCategory">{d}</div>)}
+          <div className={`productQuantity ${d.stock <= 0 ? 'outofstock' : 'instock'}`}>Stock:{d.stock}</div>
+          {d.category.map((d) => <div key={nanoid()} className="productCategory">{d}</div>)}
         </div>
       </div>
       <div className="productEnd">
-        {stock <= 0 ?
+        {d.stock <= 0 ?
           <button className='gray' disabled>Add to Cart</button>
           :
           <button onClick={toggleDrawer('top', true)}>Add to Cart</button>}
