@@ -1,0 +1,108 @@
+@import '../../styles/colors.scss';
+
+.cartitem {
+  margin-top: 20px;
+
+  .cart-wrapper {
+    display: flex;
+    width: 100%;
+
+    .left {
+      width: 100%;
+      margin-right: 20px;
+
+      .cart-items {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+
+        .cart-item {
+          display: flex;
+          justify-content: space-between;
+
+          .cart-item-content-left {
+            flex: 4;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            .cart-item-img {
+              width: 150px;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            h4 {
+              font-size: 18px;
+            }
+          }
+
+          .cart-item-content-right {
+            flex: 1;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .cart-item-stock {
+              position: absolute;
+              top: 0;
+              right: 0;
+              background-color: rgba($base-color, 0.5);
+              width: 50px;
+              margin-right: -20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #333;
+              border-radius: 0px 0px 0px 5px;
+
+              span {
+                font-size: 16px;
+                font-weight: bold;
+
+              }
+            }
+
+            .cart-item-qty {
+              width: 100%;
+
+              label {
+                font-size: 14px;
+                font-weight: bold;
+              }
+
+              input {
+                width: 100%;
+              }
+            }
+
+            .cart-item-delete-button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+              border: 1px solid crimson;
+              color: crimson;
+              margin-top: 10px;
+              padding: 5px 5px;
+              border-radius: 5px;
+              transition: 0.2s ease-in-out;
+
+              &:hover {
+                background-color: rgba(220, 20, 60, 0.52);
+                color: white;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
