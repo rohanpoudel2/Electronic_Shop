@@ -100,7 +100,7 @@ const Products = () => {
           {loading ? <h3 style={{ color: 'gray' }}>Loading...</h3> : null}
           {Data.map((d) => {
             const price = parseInt(d.price.replace('$', ''));
-            return <ProductCard key={d.id} image={d.image} name={d.name} price={price} stock={d.stock} date={d.createDate} category={d.category} />
+            return <ProductCard key={d.id} id={d.id} image={d.image} name={d.name} price={price} stock={d.stock} date={d.createDate} category={d.category} />
           }
           )}
         </div>
