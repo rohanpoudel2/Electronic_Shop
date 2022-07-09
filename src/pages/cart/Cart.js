@@ -2,6 +2,7 @@ import CartItem from '../../components/cartitem/CartItem';
 import CartTotal from '../../components/carttotal/CartTotal';
 import './cart.scss';
 import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 
 const Cart = () => {
 
@@ -13,7 +14,7 @@ const Cart = () => {
       <h1>Shopping Cart</h1>
       <div className="cart-container">
         <div className="left">
-          {data.map((d) => { return <CartItem key={d.id} d={d} /> })}
+          {data.map((d) => { return <CartItem key={nanoid()} d={d} /> })}
         </div>
         <div className="right">
           <CartTotal d={data} />

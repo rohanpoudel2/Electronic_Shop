@@ -12,9 +12,9 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
-        <Container>
-          <div className="app">
+        <div className="app">
+          <Navbar />
+          <Container>
             <Routes>
               <Route path='/'>
                 <Route index element={<Home />} />
@@ -27,9 +27,9 @@ const App = () => {
                 </Route>
               </Route>
             </Routes>
-          </div>
-        </Container>
-        <Footer />
+          </Container>
+          <Footer />
+        </div>
       </BrowserRouter>
     </>
   )
