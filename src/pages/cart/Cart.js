@@ -7,7 +7,6 @@ const Cart = () => {
 
   const data = useSelector(state => state.value);
 
-  console.log(data)
 
   return (
     <div className="cart">
@@ -17,7 +16,7 @@ const Cart = () => {
           {data.map((d) => { return <CartItem key={d.id} d={d} /> })}
         </div>
         <div className="right">
-          <CartTotal />
+          <CartTotal d={data} />
         </div>
       </div>
     </div >

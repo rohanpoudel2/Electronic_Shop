@@ -5,6 +5,7 @@ import { AddItem } from '../../redux/CartSlice';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({ d }) => {
@@ -13,7 +14,7 @@ const ProductCard = ({ d }) => {
     top: false,
   });
 
-  const [amount, setQuantity] = React.useState(0);
+  const [amount, setQuantity] = React.useState(1);
 
   const dispatch = useDispatch();
 
@@ -33,9 +34,11 @@ const ProductCard = ({ d }) => {
       <div className="top-down">
         <h2>Set the Quantity</h2>
         <input type="number" value={amount} onChange={(e) => setQuantity(e.target.value)} />
-        <button onClick={() => dispatch(AddItem({ ...d, amount }))}>
-          Continue
-        </button>
+        <Link to='/cart'>
+          <button onClick={() => dispatch(AddItem({ ...d, amount }))}>
+            Continue
+          </button>
+        </Link>
       </div>
     </Box>
   );

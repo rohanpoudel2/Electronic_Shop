@@ -5,8 +5,16 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+  const data = useSelector(state => state.value);
+
+  let items = 0;
+
+  console.log(data.map(() => items++))
+
   return (
     <div className="navbar">
       <Container>
@@ -36,7 +44,7 @@ const Navbar = () => {
               <Link to='/cart' style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ShoppingBasketIcon className='icon' />
               </Link>
-              <div className="cart_count">1</div>
+              <div className="cart_count">{items}</div>
             </div>
           </div>
         </div>
