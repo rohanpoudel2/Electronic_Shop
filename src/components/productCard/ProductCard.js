@@ -34,11 +34,15 @@ const ProductCard = ({ d }) => {
       <div className="top-down">
         <h2>Set the Quantity</h2>
         <input type="number" value={amount} onChange={(e) => setQuantity(e.target.value)} />
-        <Link to='/cart'>
-          <button onClick={() => dispatch(AddItem({ ...d, amount }))}>
-            Continue
-          </button>
-        </Link>
+        {amount > parseInt(d.stock) || parseInt(d.stock) <= 0 ?
+          <h5>Amount Exceeds or Stock is not available</h5>
+          :
+          <Link to='/cart'>
+            <button onClick={() => dispatch(AddItem({ ...d, amount }))}>
+              Continue
+            </button>
+          </Link>
+        }
       </div>
     </Box>
   );

@@ -36,6 +36,7 @@ const Home = () => {
           {
             Data.map((data) => {
               const price = parseInt(data.price.replace('$', ''));
+              data.price = price;
               if (price < 500) {
                 return <ProductCard key={data.id} d={data} />
               }

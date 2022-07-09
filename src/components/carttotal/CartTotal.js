@@ -1,16 +1,13 @@
+
 import './carttotal.scss';
 
 const CartTotal = ({ d }) => {
-  console.log(d)
 
   let totalAmount = 0;
   let totalQuantity = 0;
 
-  console.log(d.map((d) => totalAmount += parseInt(d.price.replace('$', ''))))
-
-  console.log(d.map((d) => totalQuantity += parseInt(d.amount)))
-
-  console.log(totalAmount)
+  console.log(d.map((d) => (totalAmount += parseInt(d.price))));
+  console.log(d.map((d) => (totalQuantity += parseInt(d.amount))));
 
   return (
     <div className="cart-total">

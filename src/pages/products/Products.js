@@ -9,6 +9,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState();
   const [sort, setSort] = useState();
+  const [pdate, setPdate] = useState('');
 
   const fetchData = async () => {
     const url = 'https://electronic-ecommerce.herokuapp.com/api/v1/product';
@@ -22,7 +23,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchData();
-  }, [category]);
+  }, [category, pdate]);
 
   const handleFilter = (e) => {
     e.preventDefault();
@@ -36,15 +37,35 @@ const Products = () => {
       setData(Data.map((d) => d).filter((d) => d.category[1] === category));
     }
     if (sort && sort === 'Low to High') {
-      setData(Data.sort((a, b) => a.price.replace('$', '') - b.price.replace('$', '')));
+      setData(Data.sort((a, b) => a.price - b.price));
       setSort('');
     }
     if (sort && sort === 'High to Low') {
-      setData(Data.sort((a, b) => b.price.replace('$', '') - a.price.replace('$', '')));
+      setData(Data.sort((a, b) => b.price - a.price));
       setSort('');
     }
 
+    if (pdate) {
+      let pdatetime = 0;
+      let datetime = 0;
+      setData(Data.map((d) => d).filter((d) => {
+        const compDate = new Date(d.createDate);
+        const selectedDate = compDate.getFullYear() + '-' + ((compDate.getMonth() + 1) < 10 ? '0' + (compDate.getMonth() + 1) : (compDate.getMonth() + 1)) + '-' + (compDate.getDate() < 10 ? '0' + compDate.getDate() : compDate.getDate());
+        var datum = Date.parse(selectedDate);
+        datetime = datum / 1000;
+        datum = Date.parse(pdate);
+        pdatetime = datum / 1000;
+        return pdatetime === datetime
+      }))
+      var datum = Date.parse(pdate);
+      pdatetime = datum / 1000;
+
+      console.log(pdatetime)
+      console.log(datetime)
+    }
+
   }
+
 
   return (
     <div className="product-wrapper">
@@ -61,6 +82,7 @@ const Products = () => {
                 <option value="Low to High">Low to High</option>
                 <option value="High to Low">High to Low</option>
               </select>
+              <input value={pdate} type="date" placeholder="dd-mm-yyyy" style={{ margin: "10px 0px" }} onChange={(e) => setPdate(e.target.value)} />
             </div>
             <div className="filter-title">
               <h2>Category</h2>
@@ -99,7 +121,8 @@ const Products = () => {
         <div className="products">
           {loading ? <h3 style={{ color: 'gray' }}>Loading...</h3> : null}
           {Data.map((d) => {
-            const price = parseInt(d.price.replace('$', ''));
+            const price = d.price.replace('$', '');
+            d.price = price;
             return <ProductCard key={d.id} d={d} />
           }
           )}

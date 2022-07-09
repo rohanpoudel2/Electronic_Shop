@@ -1,5 +1,4 @@
 import Home from './pages/home/Home';
-import Product from './pages/product/Product';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
 import Checkout from './pages/checkout/Checkout';
@@ -21,7 +20,6 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path='products'>
                   <Route index element={<Products />} />
-                  <Route path=':productid' element={<Product />} />
                 </Route>
                 <Route path='cart'>
                   <Route index element={<Cart />} />
