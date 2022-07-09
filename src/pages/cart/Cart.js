@@ -7,12 +7,14 @@ const Cart = () => {
 
   const data = useSelector(state => state.value);
 
+  console.log(data)
+
   return (
     <div className="cart">
       <h1>Shopping Cart</h1>
       <div className="cart-container">
         <div className="left">
-          {data.map((d) => <CartItem key={d.product.id} d={d.product} qty={d.quantity} />)}
+          {data.map((d) => { return <CartItem key={d.id} d={d} /> })}
         </div>
         <div className="right">
           <CartTotal />

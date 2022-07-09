@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { DeleteItem } from '../../redux/CartSlice';
 
-const CartItem = ({ d, qty }) => {
+const CartItem = ({ d }) => {
 
   const dispatch = useDispatch();
 
@@ -18,16 +18,15 @@ const CartItem = ({ d, qty }) => {
                   <img src={`https://electronic-ecommerce.herokuapp.com/${d.image}`} alt="imgcart" />
                   <h4>{d.name}</h4>
                 </div>
-
               </div>
               <div className="cart-item-content-right">
                 <div className="cart-item-stock">
                   <span>{d.stock}</span>
                 </div>
                 <div className="cart-item-qty">
-                  <label htmlFor="qty">Product Quantity: {qty}</label>
+                  <label htmlFor="qty">Product Quantity: {d.amount}</label>
                 </div>
-                <div className="cart-item-delete-button" onClick={() => { dispatch(DeleteItem(d)) }}>
+                <div className="cart-item-delete-button" onClick={() => dispatch(DeleteItem(d.id))}>
                   <DeleteIcon fontSize='md' />
                   Delete
                 </div>

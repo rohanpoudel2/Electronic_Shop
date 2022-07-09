@@ -9,15 +9,11 @@ import Drawer from '@mui/material/Drawer';
 
 const ProductCard = ({ d }) => {
 
-  if (!localStorage.getItem('electronic-shop-rohan')) {
-    localStorage.setItem('electronic-shop-rohan', []);
-  }
-
   const [state, setState] = React.useState({
     top: false,
   });
 
-  const [quantity, setQuantity] = React.useState(0);
+  const [amount, setQuantity] = React.useState(0);
 
   const dispatch = useDispatch();
 
@@ -36,11 +32,8 @@ const ProductCard = ({ d }) => {
     >
       <div className="top-down">
         <h2>Set the Quantity</h2>
-        <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-        <button onClick={() => dispatch(AddItem({
-          product: d,
-          quantity: quantity
-        }))}>
+        <input type="number" value={amount} onChange={(e) => setQuantity(e.target.value)} />
+        <button onClick={() => dispatch(AddItem({ ...d, amount }))}>
           Continue
         </button>
       </div>
