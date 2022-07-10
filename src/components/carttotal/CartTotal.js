@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import './carttotal.scss';
 
 const CartTotal = ({ d }) => {
@@ -16,7 +16,12 @@ const CartTotal = ({ d }) => {
       <div className="discount"> <h3>Discount Amt: </h3>Rs. 0</div>
       <hr />
       <div className="final-price"> <h3>Final Price: </h3>Rs.{totalAmount}</div>
-      <button>Checkout</button>
+
+      {totalAmount == 0 ? <span>Checkout Not Available</span> :
+        <Link to='/cart/checkout'>
+          <button>Checkout</button>
+        </Link>
+      }
     </div>
   )
 }

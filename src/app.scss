@@ -63,4 +63,16 @@
     }
   }
 
+  .checkout {
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+
+      .left {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+
 }

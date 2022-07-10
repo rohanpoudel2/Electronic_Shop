@@ -1,12 +1,12 @@
 import Home from './pages/home/Home';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
-import Checkout from './pages/checkout/Checkout';
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './app.scss';
 import { Container } from '@mui/system';
 import Footer from './components/footer/Footer';
+import Checkout from './pages/checkout/Checkout';
 
 const App = () => {
   return (

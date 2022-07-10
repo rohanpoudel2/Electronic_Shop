@@ -1,0 +1,68 @@
+@import '../../styles/colors.scss';
+
+.checkout {
+  min-height: 100vh;
+  display: flex;
+
+  .left {
+    flex: 1;
+
+    img {
+      height: 700px;
+    }
+  }
+
+  .right {
+    flex: 6;
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .form-item {
+        width: 100%;
+        margin: 5px 0px;
+
+        label {
+          color: white;
+          font-weight: bold;
+          background-color: $base-color;
+          padding: 5px;
+          border-radius: 5px 5px 5px 0px;
+        }
+
+        input {
+          width: 100%;
+          outline: none;
+          padding: 5px 10px;
+          border-radius: 5px;
+          border: 1px solid black;
+          background-color: white;
+        }
+
+        button {
+          padding: 5px 10px;
+          font-size: 16px;
+          cursor: pointer;
+          color: $base-color;
+          border: 1px solid $base-color;
+          background-color: transparent;
+          transition: 0.2s ease-in-out;
+
+          &:hover {
+            background-color: $base-color;
+            border: transparent;
+            border-radius: 5px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
